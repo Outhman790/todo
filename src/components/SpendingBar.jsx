@@ -1,4 +1,3 @@
-// src/components/SpendingBar.jsx
 import React from "react";
 
 export const SpendingBar = ({ category, percentage, color }) => (
