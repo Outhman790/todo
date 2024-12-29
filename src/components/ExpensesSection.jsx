@@ -1,14 +1,9 @@
-// src/components/ExpensesSection.jsx
 import React from "react";
 import { Filter } from "lucide-react";
 import { AddItemForm } from "./AddItemForm";
 import { ItemList } from "./ItemList";
 
-export const ExpensesSection = () => {
-  const expenseItems = [
-    { name: "Groceries", description: "Monthly essentials", amount: "450.00" },
-  ];
-
+export const ExpensesSection = ({ dispatch, expenseItems }) => {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between mb-4">
@@ -18,8 +13,18 @@ export const ExpensesSection = () => {
           <span>Filter</span>
         </button>
       </div>
-      <AddItemForm placeholder="Expense category" buttonColor="bg-blue-500" />
-      <ItemList items={expenseItems} textColor="text-red-600" />
+      <AddItemForm
+        placeholder="Expense Name"
+        buttonColor="bg-blue-500"
+        dispatch={dispatch}
+        isExpense={true}
+      />
+      <ItemList
+        items={expenseItems}
+        dispatch={dispatch}
+        isExpense={true}
+        textColor="text-red-600"
+      />
     </div>
   );
 };
