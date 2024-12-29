@@ -3,7 +3,7 @@ import { Filter } from "lucide-react";
 import { AddItemForm } from "./AddItemForm";
 import { ItemList } from "./ItemList";
 
-export const ExpensesSection = ({ dispatch, expenseItems }) => {
+export const ExpensesSection = ({ dispatch, expenseItems, budgetLimit }) => {
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex items-center justify-between mb-4">
@@ -18,6 +18,8 @@ export const ExpensesSection = ({ dispatch, expenseItems }) => {
         buttonColor="bg-blue-500"
         dispatch={dispatch}
         isExpense={true}
+        budgetLimit={budgetLimit}
+        expenseItems={expenseItems}
       />
       <ItemList
         items={expenseItems}
