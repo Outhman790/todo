@@ -8,7 +8,7 @@ const BudgetTracker = () => {
   const initialState = {
     expenses: [],
     incomes: [],
-    budgetLimit: null,
+    budgetLimit: 0,
   };
   const reducer = (state, action) => {
     switch (action.type) {
@@ -64,10 +64,17 @@ const BudgetTracker = () => {
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-4xl mx-auto space-y-6">
         <Header dispatch={dispatch} items={state} />
-        <BudgetLimitSection dispatch={dispatch} />
+        <BudgetLimitSection
+          dispatch={dispatch}
+          budgetlimit={state.budgetLimit}
+        />
         <IncomeSection dispatch={dispatch} incomesItems={state.incomes} />
-        <ExpensesSection dispatch={dispatch} expenseItems={state.expenses} />
-        <SpendingAnalysis />
+        <ExpensesSection
+          dispatch={dispatch}
+          expenseItems={state.expenses}
+          budgetLimit={state.budgetLimit}
+        />
+        <SpendingAnalysis expenses={state.expenses} />
       </div>
     </div>
   );
